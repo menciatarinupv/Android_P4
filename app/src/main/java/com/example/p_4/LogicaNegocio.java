@@ -4,6 +4,10 @@ package com.example.p_4;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import androidx.annotation.RequiresApi;
 
@@ -101,9 +105,25 @@ https://httpbin.org/delete Returns DELETE data
                          Luego, ponemos las respuestas ya pasadas al tipo correcto en bundle (almacén clave-valor)
                          y llamamos al callback que está esperando en la parte de UX
                          */
-                      Bundle res = new Bundle();
-                      res.putInt( "codigo", codigo );
-                      res.putString( "resultadoSinParsear", cuerpo );
+                      //bundle para pasar entre actividades
+                        Bundle res = new Bundle();
+                        //le puedes añadir más de una cosa al bundle
+                        res.putInt( "codigo", codigo );
+                        //"Parsing" significa analizar y convertir un programa en un formato interno que un entorno de ejecución pueda realmente ejecutar
+                        res.putString( "resultadoSinParsear", cuerpo );
+
+                        JsonArray jsonArray = JsonParser.parseString(cuerpo).getAsJsonArray();
+                        //uso null para definirlo, es como un 0.0 en un double
+                        JsonObject jObject = null;
+                        for (JsonElement jElement : jsonArray) {
+                            jObject = jElement.getAsJsonObject();
+                            Log.d("JSONArray", jObject.toString());
+                            if (jObject.get("username").getAsString().equals(username)) {
+                                res.putString("correo",jObject.get("email").getAsString() );
+                                break;
+                            }
+                        }
+
                       responder.callback( res );
 
                       Log.d( "primeraApp", "LogicaNegocio.pedirAlgoAlServidorRest().callback: recibo: " + cuerpo );
