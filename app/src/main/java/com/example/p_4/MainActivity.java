@@ -1,8 +1,10 @@
 
 package com.example.p_4;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
     // ---------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------
-    public void boton_pedir_pulsado( View quien ) { // <--- callback del boton
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void boton_pedir_pulsado(View quien ) { // <--- callback del boton
         Log.d( "primeraApp", "MainActivity.boton_pedir_pulsado(): empieza");
 
         LogicaNegocio.pedirAlgoAlServidorRest( "hola",

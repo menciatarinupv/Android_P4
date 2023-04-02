@@ -1,13 +1,17 @@
 
 package com.example.p_4;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import java.util.Optional;
 
 // -------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class LogicaNegocio {
 
     // ---------------------------------------------------------------------------------------------
@@ -66,6 +70,9 @@ https://httpbin.org/delete Returns DELETE data
     // ---------------------------------------------------------------------------------------------
     public static void ponerUrlServidor( String url ) {
         Log.d( "primeraApp", "LogicaNegocio.ponerUrlServidor(): empieza");
+
+        //El concepto de Java Optional hace referencia a una variable
+        // que puede tener un valor asignado o que puede contener un valor null.
         url_servidor = Optional.of( url );
         Log.d( "primeraApp", "LogicaNegocio.ponerUrlServidor(): termina");
     } // ()
