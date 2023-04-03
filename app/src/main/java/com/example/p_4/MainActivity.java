@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         userName = (EditText)findViewById(R.id.userName);
         textoEmail = (TextView)findViewById(R.id.textoEmail);
         //coger el texto del username y pasarlo a string
-        String userNameString = userName.getText().toString();
+        String userNameString = String.valueOf(userName.getText());
         Log.d("username a string hecho", userName.toString());
 
         LogicaNegocio.pedirAlgoAlServidorRest( userNameString, ( resultados ) -> {
