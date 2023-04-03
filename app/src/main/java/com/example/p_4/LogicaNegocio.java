@@ -28,8 +28,7 @@ public class LogicaNegocio {
     // ---------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------
     private static Optional<String> url_servidor = Optional.empty();
-    private static String servidor_por_defecto = "https://jsonplaceholder.typicode.com";
-
+   private static String servidor_por_defecto = "https://jsonplaceholder.typicode.com";
     /*
         Servidores REST de prueba
 
@@ -84,9 +83,7 @@ https://httpbin.org/delete Returns DELETE data
 
     // ---------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------
-    public static void pedirAlgoAlServidorRest( String userNameString, /*porque es una prueba*/
-                                               Respuesta responder
-    ) {
+    public static void pedirAlgoAlServidorRest( String userNameString, /*porque es una prueba*/Respuesta responder) {
         Log.d( "primeraApp", "LogicaNegocio.pedirAlgoAlServidorRest(): empieza");
 
         PeticionarioREST elPeticionario = new PeticionarioREST();

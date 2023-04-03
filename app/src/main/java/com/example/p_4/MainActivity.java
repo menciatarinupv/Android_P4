@@ -49,10 +49,8 @@ public class MainActivity extends AppCompatActivity {
         textoEmail = (TextView)findViewById(R.id.textoEmail);
         //coger el texto del username y pasarlo a string
         String userNameString = String.valueOf(userName.getText());
-        Log.d("username a string hecho", userName.toString());
-
+        Log.d("primeraApp", userNameString);
         LogicaNegocio.pedirAlgoAlServidorRest( userNameString, ( resultados ) -> {
-
                     Log.d( "primeraApp", "MainActivity.boton_ok_pulsado(): resultados: " + resultados.getString("resultadoSinParsear" ) );
                     //coge el bundle al que se le ha metido la resouesta desde la lógica Fake
                      textoEmail.setText( resultados.getString("correo" ));
