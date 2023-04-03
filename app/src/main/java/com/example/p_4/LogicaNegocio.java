@@ -18,6 +18,7 @@ import java.util.Optional;
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class LogicaNegocio {
 
+
     // ---------------------------------------------------------------------------------------------
     // ---------------------------------------------------------------------------------------------
     public interface Respuesta {
@@ -118,7 +119,7 @@ https://httpbin.org/delete Returns DELETE data
                         for (JsonElement jElement : jsonArray) {
                             jObject = jElement.getAsJsonObject();
                             Log.d("JSONArray", jObject.toString());
-                            if (jObject.get("username").getAsString().equals(username)) {
+                            if (jObject.get("username").getAsString().equals(userNameString)) {
                                 res.putString("correo",jObject.get("email").getAsString() );
                                 break;
                             }

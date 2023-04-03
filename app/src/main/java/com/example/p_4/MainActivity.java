@@ -51,13 +51,13 @@ public class MainActivity extends AppCompatActivity {
         String userNameString = userName.getText().toString();
         Log.d("username a string hecho", userName.toString());
 
-        LogicaNegocio.pedirAlgoAlServidorRest( "hola", ( resultados ) -> {
+        LogicaNegocio.pedirAlgoAlServidorRest( userNameString, ( resultados ) -> {
 
-                    Log.d( "primeraApp", "MainActivity.boton_ok_pulsado(): resultados: "
-                            + resultados.getString("resultadoSinParsear" ) );
-
+                    Log.d( "primeraApp", "MainActivity.boton_ok_pulsado(): resultados: " + resultados.getString("resultadoSinParsear" ) );
+                    //coge el bundle al que se le ha metido la resouesta desde la lógica Fake
+                     textoEmail.setText( resultados.getString("correo" ));
                 });
-                textoEmail.setText(resultados.getString("correo" ));
+
 
         // dimePrecio()
         Log.d( "primeraApp", "MainActivity.boton_pedir_pulsado(): acaba");
